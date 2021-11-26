@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock title %}
+{% block body %}
+
+
+<div class="container-sm my-3 ">
+  <h2> Add Records</h2>
+  <form action="/" method="POST">
+
+    <div class="form-control mb-2 my-2">
+      <label for="select_FullBath">number of Full Bathrooms</label>
+      <select class="form-select" , id="select_FullBath" , name="FullBath">
+        <option value="0">None</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+
+    <div class="form-control mb-2 my-2">
+      <label for="2ndFlrSF-range" class="form-label">Second floor square feet</label>
+      <input type="range" class="form-range" value="0" min="0" max="2065" name='2ndFlrSF' id="2ndFlrSF-range"
+        oninput="amount.value = this.value">
+      <br>
+      <output id="amount" name="amount" for="2ndFlrSF-range">0 - Sqft</output>
+    </div>
+
+    <div class="form-control mb-2 my-2">
+      <label for="select_KitchenQual">Kitchen Qaulity of House</label>
+      <select class="form-select" , id="select_KitchenQual" , name="KitchenQual">
+        <option value="Ex">Excellent</option>
+        <option value="Gd">Good</option>
+        <option value="TA">Average</option>
+        <option value="Fa">Fair</option>
+        <option value="Po">Poor</option>
+      </select>
+    </div>
+
+
+    <div class="form-control mb-2 my-2">
+      <label for="GrLivArea-range" class="form-label">Above grade (ground) living area square feet</label>
+      <input type="range" class="form-range" value="0" min="334" max="5642" name='GrLivArea' id="GrLivArea-range"
+        oninput="GrLivArea_amount.value = this.value">
+      <br>
+      <output id="GrLivArea_amount" name="GrLivArea_amount" for="GrLivArea-range">0 - Sqft</output>
+    </div>
+
+    <div class="form-control mb-2 my-2">
+      <label for="select_Neighborhood">Physical locations within Ames city limits</label>
+      <select class="form-select" , id="select_Neighborhood" , name="Neighborhood">
+        <option value="Blmngtn">Bloomington Heights</option>
+        <option value="Blueste">Bluestem</option>
+        <option value="BrDale">Briardale</option>
+        <option value="BrkSide">Brookside</option>
+        <option value="ClearCr">Clear Creek</option>
+        <option value="Crawfor">Crawford</option>
+        <option value="Edwards">Edwards</option>
+        <option value="IDOTRR">Iowa DOT and Rail Road</option>
+        <option value="MeadowV">Meadow Village</option>
+        <option value="Mitchel">Mitchell</option>
+        <option value="Names">North Ames</option>
+        <option value="NoRidge">Northridge</option>
+        <option value="NPkVill">Northpark Villa</option>
+        <option value="NridgHt">Northridge Heights</option>
+        <option value="NWAmes">Northwest Ames</option>
+        <option value="OldTown">Old Town</option>
+        <option value="SWISU">South & West of Iowa State University</option>
+        <option value="Sawyer">Sawyer</option>
+        <option value="SawyerW">Sawyer West</option>
+        <option value="Somerst">Somerset</option>
+        <option value="StoneBr">Stone Brook</option>
+        <option value="Timber">Timberlander</option>
+        <option value="Veenker">Veenker</option>
+      </select>
+    </div>
+
+    <div class="form-control mb-2 my-2">
+      <label for="select_GarageFinish">Interior finish of the garage</label>
+      <select class="form-select" , id="select_GarageFinish" , name="GarageFinish">
+        <option value="Fin">Finished</option>
+        <option value="RFn">Rough Finished</option>
+        <option value="Unf">Unfinished</option>
+        <option value="No Garage">No Garage</option>
+      </select>
+    </div>
+
+    <div class="form-control mb-1 my-1">
+      <label for="select_ExterQual">Exterior Material Qaulity of House</label>
+      <select class="form-select" , id="select_ExterQual" , name="ExterQual">
+        <option value="Ex">Excellent</option>
+        <option value="Gd">Good</option>
+        <option value="TA">Average</option>
+        <option value="Fa">Fair</option>
+        <option value="Po">Poor</option>
+      </select>
+    </div>
+
+    <div class="form-control mb-1 my-1">
+      <label for="select_BsmtQual">Height of the basement</label>
+      <select class="form-select" , id="select_BsmtQual" , name="BsmtQual">
+        <option value="Ex">Excellent (100+ inches)</option>
+        <option value="Gd">Good (90-99 inches)</option>
+        <option value="TA">Average ((80-89 inches)</option>
+        <option value="Fa">Fair (70-79 inches)</option>
+        <option value="Fa">Poor(less than 70 inches)</option>
+        <option value="No Basement">No Basement</option>
+      </select>
+    </div>
+
+    <div class="form-control mb-2 my-2">
+      <label for="select_OverallQual">Overall Material and Finish of the House</label>
+      <select class="form-select" , id="select_OverallQual" , name="OverallQual">
+        <option value="1">Very Poor</option>
+        <option value="2">Poor</option>
+        <option value="3">Fair</option>
+        <option value="4">Below Average</option>
+        <option value="5">Average</option>
+        <option value="6">Above Average</option>
+        <option value="7">Good</option>
+        <option value="8">Very Good</option>
+        <option value="9">Excellent</option>
+        <option value="10">Very Excellent</option>
+      </select>
+    </div>
+
+    <div class="form-control mb-2 my-2">
+      <label for="select_GarageCars">Car Capacity in Garage</label>
+      <select class="form-select" , id="select_GarageCars" , name="GarageCars">
+        <option value="0">None</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+
+    <div class="d-grid gap-2">
+      <button class="btn btn-outline-dark my-2" type="submit">Predict</button>
+    </div>
+  </form>
+</div>
+
+<div class="container my-3">
+  <h2>Predictions</h2>
+
+  {% if allTodo|length==0 %}
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+    </symbol>
+
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+        <use xlink:href="#exclamation-triangle-fill" />
+      </svg>
+      <div>
+        No Records to Predict! Please Add Records..
+      </div>
+    </div>
+  </svg>
+  {% else %}
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">sno.</th>
+        <th scope="col">FullBath</th>
+        <th scope="col">secondFlrSF</th>
+        <th scope="col">KitchenQual</th>
+        <th scope="col">GrLivArea</th>
+        <th scope="col">Neighborhood</th>
+        <th scope="col">GarageFinish</th>
+        <th scope="col">ExterQual</th>
+        <th scope="col">BsmtQual</th>
+        <th scope="col">OverallQual</th>
+        <th scope="col">GrLivArea</th>
+        <th scope="col"><span class="badge rounded-pill bg-primary">Predicted Sales Price</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for todo in allTodo %}
+      <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{todo.FullBath}}</td>
+        <td>{{todo.secondFlrSF}}</td>
+        <td>{{todo.KitchenQual}}</td>
+        <td>{{todo.GrLivArea}}</td>
+        <td>{{todo.Neighborhood}}</td>
+        <td>{{todo.GarageFinish}}</td>
+        <td>{{todo.ExterQual}}</td>
+        <td>{{todo.BsmtQual}}</td>
+        <td>{{todo.OverallQual}}</td>
+        <td>{{todo.GrLivArea}}</td>
+        <td><span class="badge bg-danger">{{todo.Prediction}}</span></td>
+        <td><a href="/delete/{{todo.sno}}" type="button" class="btn btn-dark btn-sm">Delete</a>
+      </tr>
+      {% endfor %}
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+{% endblock body %}
