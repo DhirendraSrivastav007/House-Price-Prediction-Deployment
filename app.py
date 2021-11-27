@@ -10,7 +10,7 @@ import pickle
 
 
 app = Flask(__name__)
-model_pipeline = pickle.load(open('static\house_price_model_pipeline', 'rb'))
+model_pipeline = pickle.load(open('house_price_model_pipeline', 'rb'))
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///MyAPP.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
