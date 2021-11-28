@@ -10,7 +10,8 @@ import pickle
 
 
 app = Flask(__name__)
-model_pipeline = pickle.load(open('house_price_model_pipeline_2', 'rb'))
+model = pickle.load(open('house_price_model_pipeline_2', 'rb'))
+encoder = pickle.load(open('encoder', 'rb'))
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///MyAPP.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -52,7 +53,10 @@ def welcome():
          'GrLivArea':GrLivArea, 'Neighborhood':Neighborhood, 'GarageFinish':GarageFinish, 'ExterQual':ExterQual,
         'BsmtQual':BsmtQual, 'OverallQual':OverallQual, 'GarageCars':GarageCars}, index=[0])
 
-        Prediction = model_pipeline.predict(Features)[0]
+        Categorical_columns = ['KitchenQual', 'Neighborhood', 'GarageFinish', 'ExterQual', 'BsmtQual']
+        Features[Categorical_columns] = encoder.fit_transform(Features[Categorical_columns])
+
+        Prediction = model.predict(Features)[0]
 
        
 
@@ -80,3 +84,4 @@ def delete(sno):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
